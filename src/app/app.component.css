@@ -1,0 +1,16 @@
+agm-map {
+  height: 100vh;
+}
+
+
+.button-toggle {
+  position: absolute;
+  right: 30px;
+  z-index: 10;
+  top: 30px;
+}
+
+.btn {
+  height: 30px;
+  width: 70px;
+}

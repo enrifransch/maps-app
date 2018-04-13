@@ -1,0 +1,19 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker *ngFor="let point of points"
+              [latitude]="point.location.coordinates[1]"
+              [longitude]="point.location.coordinates[0]"
+              [iconUrl]="iconGreen"
+  >
+  </agm-marker>
+  <agm-marker *ngFor="let location of locationsArr"
+              [latitude]="location.lat"
+              [longitude]="location.lng"
+              [iconUrl]="iconRed"
+  >
+  </agm-marker>
+</agm-map>
+
+<div class="button-toggle">
+  <button class="btn btn-success" (click)="onToggle()">
+  </button>
+</div>
