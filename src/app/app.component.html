@@ -3,6 +3,7 @@
               [latitude]="point.location.coordinates[1]"
               [longitude]="point.location.coordinates[0]"
               [iconUrl]="iconGreen"
+              (click)="''"
   >
   </agm-marker>
   <agm-marker *ngFor="let location of locationsArr"
