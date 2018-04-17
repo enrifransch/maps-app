@@ -44,7 +44,7 @@ export class AppComponent {
         for (let i = 0; i < arr.length; i++) {
           try {
             const row = arr[i].split(',');
-            console.log(row)
+            // console.log(row)
             const loc = row[2].replace(/"/, '');
             this.getLocation(loc);
           } catch (e) {
@@ -60,13 +60,13 @@ export class AppComponent {
       .toPromise()
       .then(r => {
         const res: any = r;
-        console.log(res.results[0]);
         const position = {
           lat: res.results[0].geometry.location.lat,
           lng: res.results[0].geometry.location.lng
         };
         this.locationsArr.push(position);
-      });
+      })
+      .catch(err => {});
   }
 
   onToggle() {
@@ -77,5 +77,21 @@ export class AppComponent {
       this.toggled = true;
       this.points = [];
     }
+  }
+
+  onFacebookLocation(location) {
+    console.log(location)
+  }
+
+
+  onMouseOver(infoWindow, gm) {
+
+    if (gm.lastOpen != null) {
+      gm.lastOpen.close();
+    }
+
+    gm.lastOpen = infoWindow;
+
+    infoWindow.open();
   }
 }
